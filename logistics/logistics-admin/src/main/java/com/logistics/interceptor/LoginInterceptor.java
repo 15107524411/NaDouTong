@@ -1,6 +1,6 @@
 package com.logistics.interceptor;
 
-import com.logistics.mapping.User;
+import com.logistics.mapping.Usermapper;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +22,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
         boolean flag = true;
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+        Usermapper user = (Usermapper) session.getAttribute("user");
         if (user == null){
             response.sendRedirect("/login");
             flag = false;
